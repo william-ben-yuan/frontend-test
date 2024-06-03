@@ -1,0 +1,10 @@
+services:
+  client:
+    stdin_open: true
+    container_name: react-bravi
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/node_modules
+      - ./:/home/app

@@ -1,0 +1,34 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.7.0
+2 info using node@v20.14.0
+3 silly config:load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config:load:file:/home/app/.npmrc
+5 silly config:load:file:/usr/local/etc/npmrc
+6 verbose title npm start
+7 verbose argv "start"
+8 verbose logfile logs-max:10 dir:/home/app/.npm/_logs/2024-06-03T00_16_41_598Z-
+9 verbose logfile /home/app/.npm/_logs/2024-06-03T00_16_41_598Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET 200 https://registry.npmjs.org/npm 223ms
+12 notice
+12 notice New minor version of npm available! 10.7.0 -> 10.8.1
+12 notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.1
+12 notice To update run: npm install -g npm@10.8.1
+12 notice  { force: true, [Symbol(proc-log.meta)]: true }
+13 verbose stack Error: command failed
+13 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+13 verbose stack     at ChildProcess.emit (node:events:519:28)
+13 verbose stack     at maybeClose (node:internal/child_process:1105:16)
+13 verbose stack     at ChildProcess._handle.onexit (node:internal/child_process:305:5)
+14 verbose pkgid react-bravi@0.1.0
+15 verbose cwd /home/app
+16 verbose Linux 5.15.0-107-generic
+17 verbose node v20.14.0
+18 verbose npm  v10.7.0
+19 error path /home/app
+20 error command failed
+21 error signal SIGTERM
+22 error command sh -c react-scripts start
+23 verbose exit 1
+24 verbose code 1
+25 error A complete log of this run can be found in: /home/app/.npm/_logs/2024-06-03T00_16_41_598Z-debug-0.log
