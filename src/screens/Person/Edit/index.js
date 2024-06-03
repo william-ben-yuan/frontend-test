@@ -29,10 +29,7 @@ const Edit = () => {
         event.preventDefault();
         try {
             await api.put(`/people/${params.id}`, person);
-            setAlert({ show: true, message: 'Pessoa atualizada com sucesso!', variant: 'success' });
-            setTimeout(() => {
-                navigate('/');
-            }, 2000);
+            navigate('/');
         } catch (error) {
             setAlert({ show: true, message: 'Erro ao atualizar pessoa, tente novamente.', variant: 'danger' });
         }
@@ -41,11 +38,11 @@ const Edit = () => {
     return (
         <>
             <Navbar />
-            <div className="container p-5 border rounded mt-5">
-                <div className="d-flex justify-content-between align-items-center">
-                    <h2>Editar Pessoa</h2>
-                    <Link to="/" className="btn btn-primary">Voltar</Link>
-                </div>
+            <div className="container mt-5">
+                <Link to="/"> Voltar</Link>
+            </div>
+            <div className="container p-5 border rounded mt-2">
+                <h2>Editar Pessoa</h2>
                 <Alert show={alert.show} message={alert.message} variant={alert.variant} />
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">

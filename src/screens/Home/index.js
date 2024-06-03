@@ -66,8 +66,8 @@ const Home = () => {
                                     </ul>
                                 </td>
                                 <td>
-                                    <Link to={`/edit/${person.id}`} className="btn btn-warning">Editar</Link>
-                                    <Link to={`/contacts/${person.id}`} className="btn btn-info ms-2">Contatos</Link>
+                                    <Link to={`/view/${person.id}`} className="btn btn-info">Visualizar</Link>
+                                    <Link to={`/edit/${person.id}`} className="btn btn-warning ms-2">Editar</Link>
                                     <button onClick={() => openModal(person)} className="btn btn-danger ms-2">Excluir</button>
                                 </td>
                             </tr>

@@ -4,8 +4,10 @@ import Navbar from '../../../components/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from '../../../components/Alert';
 
-const Create = () => {
-    const [name, setName] = useState('');
+const Add = () => {
+    const [formState, setFormState] = useState({
+        name: ''
+    });
     const [alert, setAlert] = useState({ show: false, message: '', variant: '' });
     const navigate = useNavigate();
 
@@ -13,34 +15,33 @@ const Create = () => {
         event.preventDefault();
 
         try {
-            await api.post('/people', { name });
-            setName('');
-            setAlert({ show: true, message: 'Pessoa cadastrada com sucesso!', variant: 'success' });
-            setTimeout(() => {
-                navigate('/');
-            }, 2000);
+            await api.post('/people', { name: formState.name });
+            navigate('/');
         } catch (error) {
             setAlert({ show: true, message: 'Erro ao cadastrar pessoa, tente novamente.', variant: 'danger' });
         }
     };
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
+    const handleChange = (event) => {
+        setFormState({
+            ...formState,
+            name: event.target.value
+        });
     }
 
     return (
         <>
             <Navbar />
-            <div className="container p-5 border rounded mt-5">
-                <div className="d-flex justify-content-between align-items-center">
-                    <h2>Cadastrar Pessoa</h2>
-                    <Link to="/" className="btn btn-primary">Voltar</Link>
-                </div>
+            <div className="container mt-5">
+                <Link to="/"> Voltar</Link>
+            </div>
+            <div className="container p-5 border rounded mt-2">
+                <h2>Cadastrar Pessoa</h2>
                 <Alert show={alert.show} message={alert.message} variant={alert.variant} />
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Nome</label>
-                        <input type="text" className="form-control" id="name" value={name} onChange={handleNameChange} required />
+                        <input type="text" className="form-control" id="name" value={formState.name} onChange={handleChange} required />
                     </div>
                     <button type="submit" className="btn btn-primary">Cadastrar</button>
                 </form>
@@ -49,4 +50,4 @@ const Create = () => {
     );
 }
 
-export default Create;
+export default Add;
